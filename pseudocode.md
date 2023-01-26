@@ -1,16 +1,38 @@
 -Research the questions that you will use in the quiz and list them with their answers at the bottom of this document. **COMPLETE**
 
-Create buttons for each answer
+Create buttons for each answer**COMPLETE**
 
-Create event listener for each button 
+Create event listener for each button **COMPLETE**
 
-
-Link these elements within the HTML file create dynamic elements within your Javascript file to store these. 
-
+Add timer to begin counting down in seconds from the moment that the quiz starts 
 
 
 
+CONTINUE QUIZ FUNCTION ??
 
+Create switch or if statements in a for / for Each loop for all the questions...
+
+If user clicks correct answer button - 
+    add to score array - 1 question correct 
+    alert - that's the correct answer 
+    play correct sound 
+    display next question
+
+If user clicks incorrect answer button - 
+    deduct 10 seconds from timer 
+    alert - that's an incorrect anwer 
+    play incorrect sound 
+    display next question 
+
+If timer reaches zero - move to end of quiz 
+
+If  all questions are answered - move to end of quiz 
+
+
+
+?? END OF QUIZ FUNCTION ??
+
+???
 
 
 
