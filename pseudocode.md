@@ -1,14 +1,13 @@
 -Research the questions that you will use in the quiz and list them with their answers at the bottom of this document. **COMPLETE**
 
--Create the box / grid / buttons that will hold the questions and their answers within the Javascript document. 
+Create buttons for each answer
 
-Research where to store the questions inside the Javascript / html file and put them in the correct places. 
+Create event listener for each button 
+
 
 Link these elements within the HTML file create dynamic elements within your Javascript file to store these. 
 
-Create buttons for each of the questions 
 
-Continue writing this list when you have finished the above. 
 
 
 

@@ -1,8 +1,8 @@
-const questionsData = [
+const questionData = [
 
 {
 question: "1. What is scope in Javascript?",
-
+choices : [ "How long it takes to learn Javascript.", "A collection of rules for how variables are accessed in relation to the function itself.", "The best practices implemented in your code.", "How accessible your code is for other developers." ],
 a:  "How long it takes to learn Javascript.",
 b:  "A collection of rules for how variables are accessed in relation to the function itself.",
 c:  "The best practices implemented in your code.",
