@@ -42,7 +42,7 @@ var continueQuiz = function (questionIndex) { //continueQuiz is a function that 
         
                 console.log("end");
 
-                endQuiz();
+                finish();
             };
         
 
@@ -65,18 +65,19 @@ var continueQuiz = function (questionIndex) { //continueQuiz is a function that 
 
 startQuiz.addEventListener("click", function () { //creating an event listener for the click which runs a function
 
-    questionBox.classList.remove("hide") //removing the class list property of hide - showing the questions to be answered
+    questionBox.classList.remove("hide"); //removing the class list property of hide - showing the questions to be answered
 
     continueQuiz(0); //runs the first function startQuiz
 
 });
 
 
-endQuiz = function () {
+finish = function () {
 
 
     questionBox.classList.add("hide") //removing the class list property of hide - showing the end screen
     //choiceBox.removeChild(list);
+    endQuiz.classList.remove("hide"); 
     console.log("endquiz");
 
 };
