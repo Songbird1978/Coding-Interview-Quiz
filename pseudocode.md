@@ -32,7 +32,12 @@ If  all questions are answered - move to end of quiz
 
 ?? END OF QUIZ FUNCTION ??
 
-???
+-Alert - score 
+-Show HighScores page 
+-Prompt for Initials 
+-Store initials and score in local storage 
+-Create ul and list elements 
+-Populate list with local storage information 
 
 
 
