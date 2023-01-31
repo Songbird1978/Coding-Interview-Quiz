@@ -6,45 +6,45 @@ let endQuiz = document.querySelector("#end-screen"); //linking new variable to t
 let score = 0;
 let clickListener = 0;
 let finalScore = document.querySelector("#final-score"); //linking new variable to the final score
-let initials = document.querySelector("#initials");
-let submit = document.querySelector("#submit");
-let feedback = document.querySelector("#feedback");
+let initials = document.querySelector("#initials"); //variable to link to initials 
+let submit = document.querySelector("#submit");//links to submit 
+let feedback = document.querySelector("#feedback"); //links to feedback element (I didn't need this)
 //let highScoreList = document.querySelector("#highscores");
-let submitButton = submit;
-let userInfo = 0;
+let submitButton = submit; //links to function
+let userInfo = 0; //declares a new variable for setting local storage
 
-var correctSound = new Audio('./assets/sfx/correct.wav');
-var incorrectSound = new Audio('./assets/sfx/incorrect.wav');
+var correctSound = new Audio('./assets/sfx/correct.wav'); //declares variable to store audio
+var incorrectSound = new Audio('./assets/sfx/incorrect.wav'); //as above
 
-var timeEl = document.querySelector(".timer");
-var mainEl = document.getElementById("time");
+var timeEl = document.querySelector(".timer"); //links to timer class element of document 
+var mainEl = document.getElementById("time"); //links to ID
 
-var secondsLeft = 30;
+var secondsLeft = 30; //declares amount of time on clock - 30 seconds to start 
 
 function setTime() {
     // Sets interval in variable
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        timeEl.textContent = secondsLeft + " seconds left until end of Quiz.";
+    var timerInterval = setInterval(function () { //declares variable as a function for timer
+        secondsLeft--; //the seconds should decrease 1 by 1 
+        timeEl.textContent = secondsLeft + " seconds left until end of Quiz."; //displays on page
 
-        if (secondsLeft <= 0) {
+        if (secondsLeft <= 0) { //if seconds left are less than or equal to zero
             // Stops execution of action at set interval
-            clearInterval(timerInterval);
+            clearInterval(timerInterval); //clear the timer 
             // Calls function to clear timer
-            finish();
+            finish(); //calls function to end quiz
         };
 
-    }, 1000);
+    }, 1000); //decrease by 1 second at a time (set interval)
 
 };
 
-var penaliseTime = function () {
+var penaliseTime = function () { //function to deduct 10 seconds for a wrong answer 
 
-    secondsLeft = secondsLeft - 10
+    secondsLeft = secondsLeft - 10  //declares secondsleft as minus 10 seconds 
 
-    if (secondsLeft <= 0) {
-        finish();
-        clearInterval();
+    if (secondsLeft <= 0) { //if the seconds left are less than or equal to zero ...
+        finish(); //run function 
+        clearInterval();//clear the timer 
     }
 
 };
@@ -53,10 +53,10 @@ var penaliseTime = function () {
 
 var continueQuiz = function (questionIndex) { //continueQuiz is a function that works with the questionData array (index)
 
-    if (clickListener === questionData.length) {
-        finish();
-        clearInterval();
-        return;
+    if (clickListener === questionData.length) { //listens for clicks by user to be equal to the question array length
+        finish(); //run function 
+        clearInterval(); //clear timer
+        return; // return function (I don't know if this is needed)
     }
 
     question.textContent = questionData[questionIndex].question; //defining the element question with a property of textContent as the questionData starting at the 1st element of the array 
@@ -76,23 +76,23 @@ var continueQuiz = function (questionIndex) { //continueQuiz is a function that 
         button.addEventListener("click", function () { //add function for click answer
 
             if (questionData[questionIndex].choices[i] === questionData[questionIndex].correct) { //requires the choice to be equal to the correct answer
-                console.log('correct');
-                correctSound.play();
+                console.log('correct'); //testing of 
+                correctSound.play(); //play the correct sound
                 score++; //adds each correct answer to the score
                 clickListener++; //records each answer click to track the end of the quiz
-                console.log("score = " + score);
+                console.log("score = " + score); //testing of ...
 
             } else {
                 console.log('incorrect'); //if it is not - it is incorrect 
-                incorrectSound.play();
+                incorrectSound.play(); //play the incorrect sound 
                 clickListener++; //records each wrong answer click
-                console.log("score = " + score);
-                penaliseTime();
+                console.log("score = " + score); //testing of ...
+                penaliseTime(); //run function 
 
-            } if (clickListener === questionData.length) {
+            } if (clickListener === questionData.length) { //if cicks are equal to array of questions
 
-                console.log("end");
-                clearInterval();
+                console.log("end"); //testing
+                clearInterval(); //clear the function 
 
                 finish();
             };
@@ -113,49 +113,49 @@ startQuiz.addEventListener("click", function () { //creating an event listener f
 
     continueQuiz(0); //runs the first function startQuiz
 
-    setTime();
+    setTime(); //run function 
 
 });
 
-finish = function () {
+finish = function () { //function to end the quiz 
 
     questionBox.classList.add("hide") //removing the class list property of hide - showing the end screen
 
-    endQuiz.classList.remove("hide");
-    console.log("endquiz");
-    finalScore.textContent = score;
-    clearInterval();
+    endQuiz.classList.remove("hide"); //display endquiz information
+    console.log("endquiz"); //testing
+    finalScore.textContent = score; //populate the finalscore element with the score 
+    clearInterval(); //clear the timer 
 
 };
 
 // When the form is submitted
 
-submitButton.addEventListener("click", function (event) {
+submitButton.addEventListener("click", function (event) { //listen to the click on the submit button 
 
-    event.preventDefault();
+    event.preventDefault(); // prevent default empty of form element 
 
-    var userInfo = {
-        initials: initials.value.trim(),
-        score: score,
+    var userInfo = { //declare userInfo as new empty object to store entries
+        initials: initials.value.trim(), // store the initials in the object
+        score: score, //store the score in the object 
     };
 
-    console.log(userInfo);
+    console.log(userInfo); //testing
 
-    const li = document.createElement("li");
+    const li = document.createElement("li"); // create a list element (this isn't working )
 
-    endQuiz.appendChild(li);
+    endQuiz.appendChild(li); //
 
     if (userInfo.initials === "") {
-        li.textContent = ("You must enter your initials (Max 3)!");
+        li.textContent = ("You must enter your initials (Max 3)!"); //this doesn't work
         return;
     } else {
-        li.textContent = ("You have saved your High Score of : " + score + " : " + userInfo.initials);
+        li.textContent = ("You have saved your High Score of : " + score + " : " + userInfo.initials); // message to display 
     };
 
-    window.localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    window.localStorage.setItem("userInfo", JSON.stringify(userInfo)); //stores the user info in local storage 
     //window.localStorage.getItem("userInfo", JSON.parse(userInfo));
 
-    return;
+    return; //return the function 
 
 });
 

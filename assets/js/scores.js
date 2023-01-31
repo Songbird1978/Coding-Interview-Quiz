@@ -1,35 +1,15 @@
 var highScoreList = document.querySelector("#highscores"); //linking to highscores ordered list HTML
 
-//function renderHighScores() {
-
-//var userInfo = JSON.parse(localStorage.getItem('userInfo'));
-
-const li = document.createElement("li");
-
-highscores.appendChild(li);
 
 
-//var userInfoRetrieve = JSON.parse(localStorage.getItem("userInfo"));
+const li = document.createElement("li"); //creates a list element on the document
+
+highscores.appendChild(li); //appends a child to the highscores parent
 
 
-//li.textContent = userInfoRetrieve;
+var retrievedObject = localStorage.getItem('userInfo'); //creates a variable to store retrieved info
 
-var retrievedObject = localStorage.getItem('userInfo');
+console.log('retrievedObject: ', (retrievedObject)); 
 
-console.log('retrievedObject: ', (retrievedObject));
+li.textContent = ('User Info: ', (retrievedObject)); //adds the information to the list
 
-li.textContent = ('User Info: ', (retrievedObject));
-
-/*userInfo = JSON.parse(localStorage.getItem("userInfo"));
-for (var i = 0; i < userInfo.length; i++) {
-   
-    console.log("userInfo");
-    
-    li.textContent =  userInfo;
-
-};
-
-
-
-//console.log(KeyName);
-*/
